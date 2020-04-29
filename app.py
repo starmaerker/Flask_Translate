@@ -1,9 +1,12 @@
 from flask import Flask, render_template, url_for, jsonify, request
+from config import Config
+
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
+app.config.from_object(Config)
 
 
+@app.route('/index')
 @app.route('/')
 def index():
     return render_template('index.html')
