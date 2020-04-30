@@ -1,6 +1,5 @@
 import os, requests, uuid, json
 from app import app
-from config import Config
 
 
 # Don't forget to replace with your Cog Services subscription key!
@@ -20,7 +19,7 @@ def get_translation(text_input, language_output):
 
     headers = {
         'Ocp-Apim-Subscription-Key': app.config['SUBSCRIPTION_KEY'],
-        'Ocp-Apim-Subscription-Region': 'location',
+        'Ocp-Apim-Subscription-Region': 'eastus',
         'Content-type': 'application/json',
         'X-ClientTraceId': str(uuid.uuid4())
     }
@@ -30,4 +29,6 @@ def get_translation(text_input, language_output):
         'text': text_input
     }]
     response = requests.post(constructed_url, headers=headers, json=body)
+    print(constructed_url)
+    print(headers)
     return response.json()
