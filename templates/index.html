@@ -13,9 +13,9 @@
     <div class="container">
       <h1>Translate, synthesize, and analyze text with Azure</h1>
       <p>This simple web app uses Azure for text translation, text-to-speech conversion, and sentiment analysis of input text and translations. Learn more about <a href="https://docs.microsoft.com/azure/cognitive-services/">Azure Cognitive Services</a>.
-     </p>
+      </p>
      <div class="row">
-  <div class="col">
+        <div class="col">
     <form>
       <!-- Enter text to translate. -->
       <div class="form-group">
@@ -69,6 +69,11 @@
       </div>
 
       <!-- Start voice font selection code -->
+        <button type="submit" class="btn btn-primary mb-2" id="sentiment-analysis">Run sentiment analysis</button></br>
+        <div id="sentiment" style="display: none">
+        <p>Sentiment scores are provided on a 1 point scale. The closer the sentiment score is to 1, indicates positive sentiment. The closer it is to 0, indicates negative sentiment.</p>
+        <strong>Sentiment score for input:</strong> <span id="input-sentiment"></span><br /><strong>Sentiment score for translation:</strong> <span id="translation-sentiment"></span>
+        </div>
 
       <!-- End voice font selection code -->
 
