@@ -33,4 +33,15 @@ def sentiment_analysis():
     return jsonify(response)
 
 
-import translate, sentiment
+@app.route('/text-to-speech', methods=['POST'])
+def text_to_speech():
+    data = request.get_json()
+    text_input = data['text']
+    voice_font = data['voice']
+    tts = synthesize.TextToSpeech(text_input, voice_font)
+    tts.get_token()
+    audio_response = tts.save_audio()
+    return audio_response
+
+
+import translate, sentiment, synthesize
